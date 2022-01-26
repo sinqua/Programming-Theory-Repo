@@ -5,9 +5,10 @@ using TMPro;
 
 public abstract class ColorShape : MonoBehaviour
 {
-    [SerializeField] private string colorName;
-    [SerializeField] private Color colorValue;
+    public string colorName;
+    public Color colorValue;
     public TextMeshPro colorText;
+    public bool isClicked;
 
     private int speedDefalut = 1;
     public int rotationSpeed
@@ -26,9 +27,13 @@ public abstract class ColorShape : MonoBehaviour
         }
     }
 
-    public virtual void DisplayText()
+    public virtual void DisplayText(bool click)
     {
-        colorText.text = "Color: " + colorName + "Value: " + colorValue;
+        if (click)
+        {
+            colorText.text = colorName + " : " + colorValue;
+            colorText.color = colorValue;
+        }
     }
 
     public void RotateText(int speed)

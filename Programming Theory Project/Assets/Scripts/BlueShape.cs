@@ -7,18 +7,25 @@ public class BlueShape : ColorShape
     // Start is called before the first frame update
     void Start()
     {
-        
+        colorName = "BLUE";
+        colorValue = Color.blue;
+        isClicked = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        DisplayText();
+        DisplayText(isClicked);
     }
 
-    public override void DisplayText()
+    public override void DisplayText(bool click)
     {
-        base.DisplayText();
-        RotateText(50);
+        base.DisplayText(click);
+        if (click)
+        {
+            RotateText(1);
+            Debug.Log("BLUE");
+        }
+        
     }
 }

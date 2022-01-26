@@ -7,18 +7,24 @@ public class GreenShape : ColorShape
     // Start is called before the first frame update
     void Start()
     {
-        
+        colorName = "GREEN";
+        colorValue = Color.green;
+        isClicked = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        DisplayText();
+        DisplayText(isClicked);
     }
 
-    public override void DisplayText()
+    public override void DisplayText(bool click)
     {
-        base.DisplayText();
-        RotateText(20);
+        base.DisplayText(click);
+        if (click)
+        {
+            RotateText(5);
+            Debug.Log("GREEN");
+        }
     }
 }
